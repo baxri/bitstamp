@@ -7,6 +7,15 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Socket",
+            "program": "${workspaceRoot}/socket.js",
+            "args": [
+                "task"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}\\bin\\www"
         }

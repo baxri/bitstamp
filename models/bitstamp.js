@@ -1,9 +1,7 @@
 var Bitstamp = require('bitstamp');
-var bitstamp = new Bitstamp('56456456', '43545435', '34545434545435');
-
-// bitstamp.key = '';
-// bitstamp.secret = '';
-// bitstamp.client_id = '';
+var bitstamp = new Bitstamp(
+    'fs0hZxjvbQMLuuhAPu5pZHxTplXAeJ09', 'Fn0p9kRHWhXWbTp6uuh4jYQJtS0pxErU', 'crsk6697'
+);
 
 module.exports.ticker = function (currency_pair) {
     return new Promise((resolve, reject) => {
@@ -29,9 +27,9 @@ module.exports.transactions = function (currency_pair) {
     });
 };
 
-module.exports.balance = function () {
+module.exports.balance = function (currency_pair) {
     return new Promise((resolve, reject) => {
-        bitstamp.balance((err, trades) => {
+        bitstamp.balance(currency_pair, (err, trades) => {
             if (err)
                 reject(err)
             else
@@ -41,3 +39,70 @@ module.exports.balance = function () {
     });
 };
 
+module.exports.user_transactions = function (currency_pair) {
+    return new Promise((resolve, reject) => {
+        bitstamp.user_transactions(currency_pair, (err, trades) => {
+            if (err)
+                reject(err)
+            else
+                resolve(trades);
+        });
+
+    });
+};
+
+module.exports.cancel_order = function (id) {
+    return new Promise((resolve, reject) => {
+        bitstamp.cancel_order(id, (err, trades) => {
+            if (err)
+                reject(err)
+            else
+                resolve(trades);
+        });
+    });
+};
+
+module.exports.buy = function (currency_pair, amount, price, limit_price, type) {
+    if (type === 'market') {
+        return new Promise((resolve, reject) => {
+            bitstamp.buyMarket(currency_pair, amount, (err, trades) => {
+                if (err)
+                    reject(err)
+                else
+                    resolve(trades);
+            });
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            bitstamp.buy(currency_pair, amount, price, limit_price, (err, trades) => {
+                if (err)
+                    reject(err)
+                else
+                    resolve(trades);
+            });
+        });
+    }
+
+};
+
+module.exports.sell = function (currency_pair, amount, price, limit_price, type) {
+    if (type === 'market') {
+        return new Promise((resolve, reject) => {
+            bitstamp.sellMarket(currency_pair, amount, (err, trades) => {
+                if (err)
+                    reject(err)
+                else
+                    resolve(trades);
+            });
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            bitstamp.sell(currency_pair, amount, price, limit_price, (err, trades) => {
+                if (err)
+                    reject(err)
+                else
+                    resolve(trades);
+            });
+        });
+    }
+};
