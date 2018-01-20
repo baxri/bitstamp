@@ -1,6 +1,8 @@
 var Bitstamp = require('bitstamp');
+var BitstampConfig = require('../config/bitstamp');
+
 var bitstamp = new Bitstamp(
-    'fs0hZxjvbQMLuuhAPu5pZHxTplXAeJ09', 'Fn0p9kRHWhXWbTp6uuh4jYQJtS0pxErU', 'crsk6697'
+    BitstampConfig.key, BitstampConfig.secret, BitstampConfig.account_id
 );
 
 module.exports.ticker = function (currency_pair) {
