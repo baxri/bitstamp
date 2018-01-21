@@ -21,7 +21,7 @@ To start application first you must create `config/bitstamp.js` file with this c
 
 `modules.export.secret = '509750975098750975068'`
 
-`modules.export.key = '939559'`
+`modules.export.account_id = '939559'`
 
 ## Run application
 
