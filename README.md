@@ -10,6 +10,7 @@ A basic API wrapper for the Bitstamp REST API. Please refer to their [documentat
 Clone project in your local enviroment
 
 `git clone git@github.com:baxri/bitstamp-node-client.git`
+
 `npm install`
 
 ## Configuration
@@ -18,7 +19,9 @@ To start application first you must create `config/bitstamp.js` file with this c
 
 `
 modules.export.key = '938453940857390537095'
+
 modules.export.secret = '509750975098750975068'
+
 modules.export.key = '939559'
 `
 
