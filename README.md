@@ -24,7 +24,6 @@ module.exports = {
     account_id: '8908970890'
 }
 ```
-
 ## Run application
 
 To run application just run npm command
