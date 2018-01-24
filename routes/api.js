@@ -8,25 +8,25 @@ router.get('/ping', function (req, res, next) {
 });
 
 router.get('/ticker/:currency_pair', function (req, res, next) {
-  bitstamp.ticker(req.param.currency_pair).then((response) => {
+  bitstamp.ticker(req.params.currency_pair).then((response) => {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
 
 router.get('/transactions/:currency_pair', function (req, res, next) {
-  bitstamp.transactions(req.param.currency_pair).then((response) => {
+  bitstamp.transactions(req.params.currency_pair).then((response) => {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
 
 router.get('/balance/:currency_pair', function (req, res, next) {
-  bitstamp.balance(req.currency_pair).then((response) => {
+  bitstamp.balance(req.params.currency_pair).then((response) => {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
 
 router.get('/user_transactions/:currency_pair', function (req, res, next) {
-  bitstamp.user_transactions(req.currency_pair).then((response) => {
+  bitstamp.user_transactions(req.params.currency_pair).then((response) => {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
@@ -38,7 +38,7 @@ router.post('/cancel_order', function (req, res, next) {
 });
 
 router.get('/order_statuss/:order_id', function (req, res, next) {
-  bitstamp.order_status(req.order_id).then((response) => {
+  bitstamp.order_status(req.params.order_id).then((response) => {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
