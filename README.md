@@ -17,7 +17,7 @@ Clone project in your local enviroment
 
 To start application first you must create `config/bitstamp.js` file with this content.
 
-```
+```javascript
 module.exports = {
     key: '778987978967967896797979',
     secret: '455675445457457577576767567567',
