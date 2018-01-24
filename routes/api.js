@@ -37,6 +37,12 @@ router.post('/cancel_order', function (req, res, next) {
   }).catch((err) => { res.json({ error: err }) });
 });
 
+router.get('/order_statuss/:order_id', function (req, res, next) {
+  bitstamp.order_status(req.order_id).then((response) => {
+    res.json(response);
+  }).catch((err) => { res.json({ error: err }) });
+});
+
 router.post('/buy/', function (req, res, next) {
   bitstamp.buy(req.body.currency_pair, req.body.amount, req.body.price, req.body.limit_price, req.body.type).then((response) => {
     res.json(response);

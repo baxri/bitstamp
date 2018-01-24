@@ -17,15 +17,17 @@ Clone project in your local enviroment
 
 To start application first you must create `config/bitstamp.js` file with this content.
 
-`modules.export.key = '938453940857390537095'`
-
-`modules.export.secret = '509750975098750975068'`
-
-`modules.export.account_id = '939559'`
+`
+module.exports = {
+    key: '778987978967967896797979',
+    secret: '455675445457457577576767567567',
+    account_id: '8908970890'
+}
+`
 
 ## Run application
 
 To run application just run npm command
 
-`npm start`
+`npm run start`
 
