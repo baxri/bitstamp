@@ -60,21 +60,18 @@ module.exports.cancel_order = function (id) {
                 reject(err)
             else
                 resolve(trades);
-        }); 
+        });
     });
 };
 
 module.exports.order_status = function (id) {
     return new Promise((resolve, reject) => {
-
-        reject('ererer')
-
-        // bitstamp.order_status(id, (err, trades) => {
-        //     if (err)
-        //         reject(err)
-        //     else
-        //         resolve(trades);
-        // });
+        bitstamp.order_status(id, (err, trades) => {
+            if (err)
+                reject(err)
+            else
+                resolve(trades);
+        });
     });
 };
 
