@@ -60,7 +60,7 @@ module.exports.cancel_order = function (id) {
                 reject(err)
             else
                 resolve(trades);
-        });
+        }); 
     });
 };
 
