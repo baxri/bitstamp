@@ -17,18 +17,6 @@ module.exports.ticker = function (currency_pair) {
     });
 };
 
-// module.exports.transactions = function (currency_pair) {
-//     return new Promise((resolve, reject) => {
-//         bitstamp.transactions(currency_pair, (err, trades) => {
-//             if (err)
-//                 reject(err)
-//             else
-//                 resolve(trades);
-//         });
-
-//     });
-// };
-
 module.exports.transactions = function () {
     return new Promise((resolve, reject) => {
         bitstamp.transactions(null, (err, trades) => {
