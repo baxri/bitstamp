@@ -54,9 +54,11 @@ module.exports.balance = function (currency_pair) {
 };
 
 
-module.exports.user_transactions = function (currency_pair) {
+module.exports.user_transactions = function () {
     return new Promise((resolve, reject) => {
-        bitstamp.user_transactions(currency_pair, (err, trades) => {
+        bitstamp.user_transactions(null, {
+            //limit: 2
+        },(err, trades) => {
             if (err)
                 reject(err)
             else

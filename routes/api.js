@@ -25,18 +25,18 @@ router.get('/transactions', function (req, res, next) {
   }).catch((err) => { res.json({ error: err }) });
 });
 
+router.get('/user_transactions/', function (req, res, next) {
+  bitstamp.user_transactions().then((response) => {
+    res.json(response);
+  }).catch((err) => { res.json({ error: err }) });
+});
+
 router.get('/balance/:currency_pair', function (req, res, next) {
   bitstamp.balance(req.params.currency_pair).then((response) => {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
 
-
-router.get('/user_transactions/:currency_pair', function (req, res, next) {
-  bitstamp.user_transactions(req.params.currency_pair).then((response) => {
-    res.json(response);
-  }).catch((err) => { res.json({ error: err }) });
-});
 
 router.post('/cancel_order', function (req, res, next) {
   bitstamp.cancel_order(req.body.id).then((response) => {
