@@ -13,8 +13,14 @@ router.get('/ticker/:currency_pair', function (req, res, next) {
   }).catch((err) => { res.json({ error: err }) });
 });
 
-router.get('/transactions/:currency_pair', function (req, res, next) {
-  bitstamp.transactions(req.params.currency_pair).then((response) => {
+// router.get('/transactions/:currency_pair', function (req, res, next) {
+//   bitstamp.transactions(req.params.currency_pair).then((response) => {
+//     res.json(response);
+//   }).catch((err) => { res.json({ error: err }) });
+// });
+
+router.get('/transactions', function (req, res, next) {
+  bitstamp.transactions().then((response) => {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
@@ -24,6 +30,7 @@ router.get('/balance/:currency_pair', function (req, res, next) {
     res.json(response);
   }).catch((err) => { res.json({ error: err }) });
 });
+
 
 router.get('/user_transactions/:currency_pair', function (req, res, next) {
   bitstamp.user_transactions(req.params.currency_pair).then((response) => {

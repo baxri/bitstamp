@@ -17,9 +17,21 @@ module.exports.ticker = function (currency_pair) {
     });
 };
 
-module.exports.transactions = function (currency_pair) {
+// module.exports.transactions = function (currency_pair) {
+//     return new Promise((resolve, reject) => {
+//         bitstamp.transactions(currency_pair, (err, trades) => {
+//             if (err)
+//                 reject(err)
+//             else
+//                 resolve(trades);
+//         });
+
+//     });
+// };
+
+module.exports.transactions = function () {
     return new Promise((resolve, reject) => {
-        bitstamp.transactions(currency_pair, (err, trades) => {
+        bitstamp.transactions(null, (err, trades) => {
             if (err)
                 reject(err)
             else
@@ -40,6 +52,7 @@ module.exports.balance = function (currency_pair) {
 
     });
 };
+
 
 module.exports.user_transactions = function (currency_pair) {
     return new Promise((resolve, reject) => {
